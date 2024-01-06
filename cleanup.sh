@@ -1,0 +1,2 @@
+rm *.wav
+rm *.webm
