@@ -2,8 +2,12 @@ from transformers import SeamlessM4Tv2Model, AutoProcessor
 import torchaudio
 import asyncio
 
-processor = AutoProcessor.from_pretrained("facebook/seamless-m4t-v2-large")
-model = SeamlessM4Tv2Model.from_pretrained("facebook/seamless-m4t-v2-large")
+# processor = AutoProcessor.from_pretrained("facebook/seamless-m4t-v2-large")
+# model = SeamlessM4Tv2Model.from_pretrained("facebook/seamless-m4t-v2-large")
+# processor.save_pretrained("seamless")
+# model.save_pretrained("seamless")
+processor = AutoProcessor.from_pretrained("seamless", local_files_only=True)
+model = SeamlessM4Tv2Model.from_pretrained("seamless", local_files_only=True)
 
 
 async def translate(file):
