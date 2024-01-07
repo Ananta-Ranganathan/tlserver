@@ -53,6 +53,13 @@ def translate_file():
     except Exception as e:
         print(f"Error during translation: {e}")
         return jsonify({"error": "Error during translation"}), 500
+    
+    # Delete the files
+    try:
+        os.remove(original_file_path)
+        os.remove(converted_file_path)
+    except Exception as e:
+        print(f"Error deleting files: {e}")
 
     print("Time taken for translation: ", time.time() - start)
     return jsonify({"translatedText": translated_text})
